@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="作品占位图二">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset=".55" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#sky)"/>
+  <circle cx="860" cy="250" r="96" fill="url(#sun)" opacity=".95"/>
+  <circle cx="860" cy="250" r="150" fill="#fde68a" opacity=".12"/>
+
+  <path d="M0 620l210-190 150 130 190-230 230 250 140-120 280 200v90H0z" fill="#0b1020" opacity=".55"/>
+  <path d="M0 690l240-150 190 100 200-140 190 130 180-90 200 120v90H0z" fill="#070a14" opacity=".8"/>
+
+  <rect x="80" y="70" width="160" height="12" rx="6" fill="#ffffff" opacity=".55"/>
+  <rect x="80" y="98" width="96" height="10" rx="5" fill="#ffffff" opacity=".3"/>
+</svg>

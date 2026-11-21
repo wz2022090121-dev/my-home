@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="作品占位图一">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="pane" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="1010" cy="120" r="230" fill="#ffffff" opacity=".08"/>
+  <circle cx="150" cy="680" r="190" fill="#ffffff" opacity=".07"/>
+
+  <rect x="330" y="150" width="540" height="450" rx="26" fill="#ffffff" opacity=".12"/>
+  <rect x="330" y="150" width="540" height="450" rx="26" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="2"/>
+  <rect x="330" y="150" width="540" height="60" rx="26" fill="url(#pane)"/>
+  <circle cx="368" cy="180" r="9" fill="#ffffff" opacity=".65"/>
+  <circle cx="396" cy="180" r="9" fill="#ffffff" opacity=".45"/>
+  <circle cx="424" cy="180" r="9" fill="#ffffff" opacity=".3"/>
+
+  <rect x="378" y="260" width="230" height="26" rx="13" fill="#ffffff" opacity=".85"/>
+  <rect x="378" y="306" width="330" height="14" rx="7" fill="#ffffff" opacity=".45"/>
+  <rect x="378" y="332" width="290" height="14" rx="7" fill="#ffffff" opacity=".38"/>
+  <rect x="378" y="392" width="132" height="42" rx="21" fill="#ffffff" opacity=".9"/>
+  <circle cx="760" cy="330" r="64" fill="#ffffff" opacity=".22"/>
+  <path d="M735 330l18 18 34-38" fill="none" stroke="#ffffff" stroke-opacity=".9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
