@@ -3,29 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>你的名字 ✨ 个人空间</title>
+<title>小诗 ✿ 个人空间</title>
 <script>document.documentElement.classList.add('js')</script>
 <style>
   :root {
-    /* ===== 换配色，改下面这 6 组就行 ===== */
-    --bg: #fff9f5;
-    --ink: #4a3b52;
-    --muted: #93859a;
-    --pink: #ff8fb1;
-    --pink-soft: #ffe1ea;
-    --mint: #7ed9c3;
-    --mint-soft: #dff7f1;
-    --lemon: #ffe28a;
-    --lemon-soft: #fff4d6;
-    --lavender: #c9b6f7;
-    --lavender-soft: #ece5ff;
+    --bg: #faf6ee;
+    --ink: #3a3128;
+    --muted: #8a7a66;
+    --green: #4f7f5e;
+    --green-deep: #35604a;
+    --green-soft: #e2efe3;
+    --brown: #8b6b47;
+    --brown-soft: #f1e6d6;
+    --gold: #d9a521;
+    --gold-soft: #faf0cf;
+    --cream-soft: #f3efe2;
 
     --card: #ffffff;
-    --shadow-sm: 0 4px 14px rgba(74, 59, 82, .07);
-    --shadow: 0 12px 32px rgba(74, 59, 82, .10);
+    --shadow-sm: 0 4px 14px rgba(58, 49, 40, .07);
+    --shadow: 0 12px 32px rgba(58, 49, 40, .11);
     --radius: 26px;
     --max: 1000px;
-    --font: "Yuanti SC", "YouYuan", "幼圆", "Chalkboard SE", "Comic Sans MS",
+    --font: "Yuanti SC", "YouYuan", "幼圆", "Chalkboard SE",
             "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
             -apple-system, BlinkMacSystemFont, sans-serif;
   }
@@ -35,7 +34,7 @@
   body {
     font-family: var(--font);
     background-color: var(--bg);
-    background-image: radial-gradient(rgba(255, 143, 177, .16) 1.6px, transparent 1.6px);
+    background-image: radial-gradient(rgba(139, 107, 71, .15) 1.6px, transparent 1.6px);
     background-size: 24px 24px;
     color: var(--ink);
     font-size: 16px;
@@ -45,10 +44,9 @@
   }
   .wrap { max-width: var(--max); margin: 0 auto; }
   a { color: inherit; text-decoration: none; }
-  ::selection { background: var(--pink); color: #fff; }
+  ::selection { background: var(--gold); color: #fff; }
   img { display: block; }
 
-  /* ===== 顶部导航 ===== */
   header {
     display: flex; align-items: center; justify-content: space-between;
     gap: 14px; flex-wrap: wrap; padding: 26px 0 6px;
@@ -57,7 +55,7 @@
     font-size: 17px; font-weight: 800; letter-spacing: .02em;
     display: inline-flex; align-items: center; gap: 6px;
   }
-  .logo span { color: var(--pink); font-size: 15px; }
+  .logo span { color: var(--green); font-size: 15px; }
   nav {
     display: flex; gap: 4px;
     background: var(--card);
@@ -70,9 +68,8 @@
     font-size: 14px; font-weight: 600; color: var(--muted);
     transition: background .2s, color .2s, transform .2s;
   }
-  nav a:hover { background: var(--pink-soft); color: var(--ink); transform: translateY(-1px); }
+  nav a:hover { background: var(--green-soft); color: var(--green-deep); transform: translateY(-1px); }
 
-  /* ===== 首屏 ===== */
   .hero {
     position: relative;
     padding: clamp(48px, 10vw, 100px) 0 clamp(40px, 7vw, 72px);
@@ -83,10 +80,10 @@
     animation: float 4.5s ease-in-out infinite;
     user-select: none;
   }
-  .s1 { top: 12%; right: 8%; font-size: 26px; color: var(--pink); }
-  .s2 { top: 46%; right: 18%; font-size: 18px; color: var(--lemon); animation-delay: .9s; }
-  .s3 { top: 74%; left: 6%; font-size: 20px; color: var(--lavender); animation-delay: 1.7s; }
-  .s4 { top: 18%; left: 12%; font-size: 15px; color: var(--mint); animation-delay: 2.3s; }
+  .s1 { top: 12%; right: 8%; font-size: 26px; color: var(--gold); }
+  .s2 { top: 46%; right: 18%; font-size: 18px; color: var(--green); animation-delay: .9s; }
+  .s3 { top: 74%; left: 6%; font-size: 20px; color: var(--brown); animation-delay: 1.7s; }
+  .s4 { top: 18%; left: 12%; font-size: 15px; color: var(--gold); animation-delay: 2.3s; }
 
   .badge {
     display: inline-block;
@@ -96,7 +93,7 @@
     box-shadow: var(--shadow-sm);
     font-size: 14px;
     font-weight: 600;
-    color: var(--muted);
+    color: var(--brown);
     margin-bottom: 28px;
   }
   h1 {
@@ -109,7 +106,8 @@
   h1 em {
     font-style: normal;
     white-space: nowrap;
-    background: linear-gradient(transparent 60%, var(--lemon) 60% 94%, transparent 94%);
+    color: var(--green-deep);
+    background: linear-gradient(transparent 60%, var(--gold-soft) 60% 94%, transparent 94%);
     padding: 0 4px;
   }
   .lede {
@@ -132,18 +130,17 @@
     transition: transform .15s ease, box-shadow .15s ease, background .2s;
   }
   .btn-primary {
-    background: var(--pink); color: #fff;
-    box-shadow: 0 5px 0 #e0728f;
+    background: var(--green); color: #fff;
+    box-shadow: 0 5px 0 var(--green-deep);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #e0728f; }
-  .btn-primary:active { transform: translateY(3px); box-shadow: 0 1px 0 #e0728f; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--green-deep); }
+  .btn-primary:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--green-deep); }
   .btn-ghost {
     background: var(--card); color: var(--ink);
     box-shadow: var(--shadow-sm);
   }
-  .btn-ghost:hover { transform: translateY(-2px); background: var(--mint-soft); }
+  .btn-ghost:hover { transform: translateY(-2px); background: var(--gold-soft); }
 
-  /* ===== 分区标题 ===== */
   section { padding: clamp(40px, 7vw, 70px) 0; }
   .sec-title {
     display: flex; align-items: center; gap: 12px;
@@ -154,13 +151,12 @@
     display: grid; place-items: center;
     width: 34px; height: 34px;
     border-radius: 50%;
-    background: var(--lemon);
+    background: var(--gold);
     font-size: 13px;
-    color: #7a5c00;
+    color: #fff;
     flex-shrink: 0;
   }
 
-  /* ===== 关于我 ===== */
   .about-card {
     display: flex; align-items: center; gap: clamp(24px, 5vw, 48px);
     background: var(--card);
@@ -173,9 +169,9 @@
     width: clamp(110px, 20vw, 150px);
     aspect-ratio: 1;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--pink-soft), var(--lavender-soft));
+    background: linear-gradient(135deg, var(--green-soft), var(--gold-soft));
     border: 5px solid #fff;
-    box-shadow: 0 8px 24px rgba(255, 143, 177, .3);
+    box-shadow: 0 8px 24px rgba(79, 127, 94, .28);
     display: grid; place-items: center;
     overflow: hidden;
     flex-shrink: 0;
@@ -192,7 +188,6 @@
   .about-text p + p { margin-top: 14px; }
   .about-text strong { color: var(--ink); font-weight: 700; }
 
-  /* ===== 作品卡片 ===== */
   .cards { display: grid; gap: 16px; }
   .card {
     display: flex; align-items: center; gap: 18px;
@@ -205,17 +200,16 @@
     transform: translateY(-4px) rotate(-.6deg);
     box-shadow: var(--shadow);
   }
-  .c-pink { background: var(--pink-soft); }
-  .c-mint { background: var(--mint-soft); }
-  .c-lemon { background: var(--lemon-soft); }
-  .c-lavender { background: var(--lavender-soft); }
+  .c-green { background: var(--green-soft); }
+  .c-brown { background: var(--brown-soft); }
+  .c-gold  { background: var(--gold-soft); }
   .card-emoji {
     width: 58px; height: 58px; flex-shrink: 0;
     display: grid; place-items: center;
     font-size: 28px;
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 4px 10px rgba(74, 59, 82, .06);
+    box-shadow: 0 4px 10px rgba(58, 49, 40, .06);
   }
   .card-body { flex: 1; min-width: 0; }
   .card-body h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 2px; }
@@ -225,11 +219,10 @@
     flex-shrink: 0;
   }
 
-  /* ===== 联系 ===== */
   .contact-card {
     text-align: center;
     background: var(--card);
-    border: 2px dashed var(--pink-soft);
+    border: 2px dashed var(--brown-soft);
     border-radius: 32px;
     padding: clamp(32px, 7vw, 60px) clamp(24px, 5vw, 48px);
     box-shadow: var(--shadow-sm);
@@ -246,15 +239,15 @@
     margin: 24px 0 30px;
     padding: 14px 34px;
     border-radius: 999px;
-    background: var(--pink);
+    background: var(--gold);
     color: #fff;
     font-weight: 800;
     font-size: clamp(.95rem, 2.2vw, 1.1rem);
-    box-shadow: 0 5px 0 #e0728f;
+    box-shadow: 0 5px 0 #b8860b;
     transition: transform .15s ease, box-shadow .15s ease;
   }
-  .mail:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #e0728f; }
-  .mail:active { transform: translateY(3px); box-shadow: 0 1px 0 #e0728f; }
+  .mail:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #b8860b; }
+  .mail:active { transform: translateY(3px); box-shadow: 0 1px 0 #b8860b; }
 
   .socials {
     display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
@@ -264,15 +257,14 @@
     padding: 9px 18px;
     border-radius: 999px;
     font-size: 14px; font-weight: 700;
-    background: var(--lavender-soft);
+    background: var(--green-soft);
     transition: transform .2s, background .2s;
   }
-  .socials a:nth-child(2) { background: var(--mint-soft); }
-  .socials a:nth-child(3) { background: var(--lemon-soft); }
-  .socials a:nth-child(4) { background: var(--pink-soft); }
+  .socials a:nth-child(2) { background: var(--brown-soft); }
+  .socials a:nth-child(3) { background: var(--gold-soft); }
+  .socials a:nth-child(4) { background: var(--cream-soft); }
   .socials a:hover { transform: translateY(-3px) rotate(-2deg); }
 
-  /* ===== 页脚 ===== */
   footer {
     display: flex; justify-content: space-between; flex-wrap: wrap;
     gap: 10px;
@@ -281,7 +273,6 @@
     color: var(--muted);
   }
 
-  /* ===== 进场动画（无 JS 也能正常显示） ===== */
   .js .reveal {
     opacity: 0; transform: translateY(18px);
     transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
@@ -293,7 +284,6 @@
     50% { transform: translateY(-10px) rotate(8deg); }
   }
 
-  /* ===== 移动端 ===== */
   @media (max-width: 700px) {
     body { padding: 0 18px; }
     header { padding: 20px 0 4px; }
@@ -318,7 +308,7 @@
 <div class="wrap">
 
   <header>
-    <a class="logo" href="#top">你的名字 <span>✿</span></a>
+    <a class="logo" href="#top">小诗 <span>🌿</span></a>
     <nav>
       <a href="#about">关于</a>
       <a href="#work">作品</a>
@@ -335,15 +325,15 @@
       <span class="sparkle s3">✦</span>
       <span class="sparkle s4">✧</span>
 
-      <span class="badge reveal">🌸 欢迎来到我的小角落</span>
-      <h1 class="reveal">你好呀，<br>我是<em>你的名字</em> 👋</h1>
+      <span class="badge reveal">🌾 欢迎来到小诗的角落</span>
+      <h1 class="reveal">你好呀，<br>我是<em>小诗</em> 👋</h1>
       <p class="lede reveal">
-        一个喜欢 <strong>画画 / 写代码 / 拍照</strong> 的人。
-        这个小角落放着我做的、喜欢的、想分享的一切 ☁️
+        一个喜欢 <strong>养植物、逛旧书店、写点小东西</strong> 的人。
+        这里放着我慢慢攒下来的日常、手作，和一些不想丢掉的小事 🍂
       </p>
       <div class="actions reveal">
-        <a class="btn btn-primary" href="#work">看看我做的 🍰</a>
-        <a class="btn btn-ghost" href="mailto:you@example.com">找我聊天 💌</a>
+        <a class="btn btn-primary" href="#work">翻翻我的东西 🌱</a>
+        <a class="btn btn-ghost" href="mailto:wz2022090121@163.com">找我聊天 ✉️</a>
       </div>
     </section>
 
@@ -352,14 +342,14 @@
       <h2 class="sec-title reveal"><span>01</span>关于我</h2>
       <div class="about-card reveal">
         <div class="avatar-wrap">
-          <!-- 有照片就放 avatar.jpg 在同一文件夹；没有就让它空着，会显示 🐱 -->
-          <img src="avatar.jpg" alt="我的照片" onerror="this.remove()" />
-          <span class="avatar-fallback">🐱</span>
+          <!-- 有照片就放 avatar.jpg 在同一文件夹；没有会显示 🦌 -->
+          <img src="avatar.jpg" alt="小诗的照片" onerror="this.remove()" />
+          <span class="avatar-fallback">🦌</span>
         </div>
         <div class="about-text">
-          <p>我是<strong>你的名字</strong>，目前在<strong>你的城市</strong>做<strong>你的事</strong>。喜欢把复杂的东西拆开，再用更简单的方式拼回去。</p>
-          <p>工作之外，我大概在<strong>爬山 / 拍胶片 / 读科幻</strong>。这里不追热点，只放我真正在意的东西 ✨</p>
-          <p>想聊聊的话，随时给我写信～</p>
+          <p>我是<strong>小诗</strong>，这个名字是妈妈取的。她说希望我的人生过得像一首小诗——不用很长，但要读起来舒服。目前住在<strong>杭州</strong>，做着一份和<strong>界面设计</strong>有关的工作。</p>
+          <p>下班以后，我大部分时间待在阳台上。那里有十七盆植物，一盆比一盆难养，但我还是每天给它们浇水、拍照、记下哪片叶子又黄了。周末会去旧书店翻一下午，偶尔写点没人看的小文章，写完就塞进抽屉里 🌿</p>
+          <p>这个网站是我自己一点点搭起来的，不追热点，只放我真正在意的东西。想聊聊的话，随时写信给我～</p>
         </div>
       </div>
     </section>
@@ -368,27 +358,27 @@
     <section id="work">
       <h2 class="sec-title reveal"><span>02</span>我做的事</h2>
       <div class="cards">
-        <a class="card c-pink reveal" href="#" target="_blank" rel="noopener">
-          <span class="card-emoji">🎨</span>
+        <a class="card c-green reveal" href="#" target="_blank" rel="noopener">
+          <span class="card-emoji">🪴</span>
           <div class="card-body">
-            <h3>项目名称一</h3>
-            <p>一句话说清它是什么、你负责哪部分、结果如何。</p>
+            <h3>阳台植物图鉴</h3>
+            <p>从 2023 年开始养的十七盆植物，每盆都拍了一张证件照，配一段小记——包括那盆被我浇死又救回来的薄荷。</p>
           </div>
           <span class="card-year">2025</span>
         </a>
-        <a class="card c-mint reveal" href="#" target="_blank" rel="noopener">
-          <span class="card-emoji">🧩</span>
-          <div class="card-body">
-            <h3>项目名称二</h3>
-            <p>写具体做了什么、解决了什么问题，别写“赋能”“致力于”。</p>
-          </div>
-          <span class="card-year">2025</span>
-        </a>
-        <a class="card c-lemon reveal" href="#" target="_blank" rel="noopener">
+        <a class="card c-brown reveal" href="#" target="_blank" rel="noopener">
           <span class="card-emoji">📚</span>
           <div class="card-body">
-            <h3>项目名称三</h3>
-            <p>没有三个也没关系，删掉这条就行。宁缺毋滥。</p>
+            <h3>旧书店地图</h3>
+            <p>记录了这座城市里二十三家旧书店的位置、气味和老板的性格，手绘成一张可以折进口袋的小地图。</p>
+          </div>
+          <span class="card-year">2024</span>
+        </a>
+        <a class="card c-gold reveal" href="#" target="_blank" rel="noopener">
+          <span class="card-emoji">🍲</span>
+          <div class="card-body">
+            <h3>写给朋友的食谱</h3>
+            <p>手绘的十二道家常菜，从番茄炒蛋到冬天的萝卜炖排骨，只送给会认真做饭的人。</p>
           </div>
           <span class="card-year">2024</span>
         </a>
@@ -399,13 +389,13 @@
     <section id="contact">
       <h2 class="sec-title reveal"><span>03</span>联系我</h2>
       <div class="contact-card reveal">
-        <p>有想法、有项目，<br>或者只是想打个招呼，都欢迎写信给我 💗</p>
-        <a class="mail" href="mailto:you@example.com">you@example.com</a>
+        <p>有想法、有项目，<br>或者只是想聊聊最近读的书，都欢迎写信给我 🌻</p>
+        <a class="mail" href="mailto:wz2022090121@163.com">wz2022090121@163.com</a>
         <div class="socials">
-          <a href="https://github.com/" target="_blank" rel="noopener">🐙 GitHub</a>
-          <a href="https://x.com/" target="_blank" rel="noopener">🐦 X</a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener">📷 Instagram</a>
-          <a href="#" target="_blank" rel="noopener">📄 简历</a>
+          <a href="https://github.com/" target="_blank" rel="noopener">🌿 GitHub</a>
+          <a href="https://x.com/" target="_blank" rel="noopener">🍂 X</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">🌰 Instagram</a>
+          <a href="#" target="_blank" rel="noopener">📜 简历</a>
         </div>
       </div>
     </section>
@@ -413,14 +403,13 @@
   </main>
 
   <footer>
-    <span>© 2025 你的名字</span>
-    <span>用 ♥ 和 Cloudflare Pages 做的</span>
+    <span>© 2025 小诗</span>
+    <span>用 🌿 和 Cloudflare Pages 做的</span>
   </footer>
 
 </div>
 
 <script>
-  // 滚动到视口时淡入；不支持就直接显示，不影响内容
   var els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
