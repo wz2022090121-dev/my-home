@@ -34,8 +34,10 @@
   body {
     font-family: var(--font);
     background-color: var(--bg);
-    background-image: radial-gradient(rgba(139, 107, 71, .15) 1.6px, transparent 1.6px);
-    background-size: 24px 24px;
+    background-image:
+      radial-gradient(rgba(139, 107, 71, .13) 1.5px, transparent 1.5px),
+      repeating-linear-gradient(45deg, rgba(139, 107, 71, .022) 0 2px, transparent 2px 7px);
+    background-size: 24px 24px, 100% 100%;
     color: var(--ink);
     font-size: 16px;
     line-height: 1.8;
@@ -47,6 +49,17 @@
   ::selection { background: var(--gold); color: #fff; }
   img { display: block; }
 
+  /* ===== 顶部滚动进度条 ===== */
+  .progress {
+    position: fixed; top: 0; left: 0;
+    height: 4px; width: 0;
+    background: linear-gradient(90deg, var(--green), var(--gold), var(--brown));
+    border-radius: 0 999px 999px 0;
+    z-index: 120;
+    transition: width .08s linear;
+  }
+
+  /* ===== 顶部导航 ===== */
   header {
     display: flex; align-items: center; justify-content: space-between;
     gap: 14px; flex-wrap: wrap; padding: 26px 0 6px;
@@ -70,6 +83,7 @@
   }
   nav a:hover { background: var(--green-soft); color: var(--green-deep); transform: translateY(-1px); }
 
+  /* ===== 首屏 ===== */
   .hero {
     position: relative;
     padding: clamp(48px, 10vw, 100px) 0 clamp(40px, 7vw, 72px);
@@ -86,16 +100,29 @@
   .s4 { top: 18%; left: 12%; font-size: 15px; color: var(--gold); animation-delay: 2.3s; }
 
   .badge {
+    position: relative;
     display: inline-block;
-    padding: 8px 20px;
+    padding: 8px 22px;
     border-radius: 999px;
     background: var(--card);
     box-shadow: var(--shadow-sm);
     font-size: 14px;
     font-weight: 600;
     color: var(--brown);
-    margin-bottom: 28px;
+    margin-bottom: 30px;
   }
+  /* 徽章上方的纸胶带 */
+  .badge::before {
+    content: "";
+    position: absolute;
+    top: -9px; left: 50%;
+    width: 48px; height: 15px;
+    transform: translateX(-50%) rotate(-2.5deg);
+    background: rgba(79, 127, 94, .30);
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(58, 49, 40, .12);
+  }
+
   h1 {
     font-size: clamp(2.1rem, 7.2vw, 4rem);
     font-weight: 800;
@@ -123,12 +150,23 @@
     gap: 14px; margin-top: 36px;
   }
   .btn {
+    position: relative;
     display: inline-flex; align-items: center; gap: 8px;
     padding: 13px 28px;
     border-radius: 999px;
     font-size: 15px; font-weight: 700;
     transition: transform .15s ease, box-shadow .15s ease, background .2s;
+    overflow: hidden;
   }
+  .btn::after {
+    content: "";
+    position: absolute; top: 0; left: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
+    transform: skewX(-18deg);
+    transition: left .5s ease;
+  }
+  .btn:hover::after { left: 130%; }
   .btn-primary {
     background: var(--green); color: #fff;
     box-shadow: 0 5px 0 var(--green-deep);
@@ -141,6 +179,17 @@
   }
   .btn-ghost:hover { transform: translateY(-2px); background: var(--gold-soft); }
 
+  .signature {
+    display: inline-block;
+    margin-top: 34px;
+    font-size: 14px;
+    color: var(--brown);
+    opacity: .85;
+    transform: rotate(-1.5deg);
+    letter-spacing: .02em;
+  }
+
+  /* ===== 分区标题 ===== */
   section { padding: clamp(40px, 7vw, 70px) 0; }
   .sec-title {
     display: flex; align-items: center; gap: 12px;
@@ -152,12 +201,32 @@
     width: 34px; height: 34px;
     border-radius: 50%;
     background: var(--gold);
-    font-size: 13px;
     color: #fff;
+    font-size: 13px;
     flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--gold-soft);
   }
 
+  /* ===== 手账分隔线 ===== */
+  .divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px;
+    padding: 6px 0;
+    color: var(--green);
+    font-size: 17px;
+  }
+  .divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    max-width: 180px;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--brown) 0 6px, transparent 6px 13px);
+    opacity: .45;
+  }
+
+  /* ===== 关于我 ===== */
   .about-card {
+    position: relative;
     display: flex; align-items: center; gap: clamp(24px, 5vw, 48px);
     background: var(--card);
     border-radius: var(--radius);
@@ -173,7 +242,6 @@
     border: 5px solid #fff;
     box-shadow: 0 8px 24px rgba(79, 127, 94, .28);
     display: grid; place-items: center;
-    overflow: hidden;
     flex-shrink: 0;
     transition: transform .3s cubic-bezier(.2,.7,.2,1);
   }
@@ -182,14 +250,26 @@
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
+    border-radius: 50%;
   }
   .avatar-fallback { font-size: 44px; }
+  /* 头像右下角的小叶子贴纸 */
+  .avatar-wrap::after {
+    content: "🌿";
+    position: absolute;
+    right: -10px; bottom: -8px;
+    font-size: 24px;
+    transform: rotate(-14deg);
+    filter: drop-shadow(0 2px 4px rgba(58, 49, 40, .22));
+  }
   .about-text p { color: var(--muted); }
   .about-text p + p { margin-top: 14px; }
   .about-text strong { color: var(--ink); font-weight: 700; }
 
-  .cards { display: grid; gap: 16px; }
+  /* ===== 作品卡片 ===== */
+  .cards { display: grid; gap: 22px; }
   .card {
+    position: relative;
     display: flex; align-items: center; gap: 18px;
     padding: 22px 26px;
     border-radius: 22px;
@@ -200,9 +280,32 @@
     transform: translateY(-4px) rotate(-.6deg);
     box-shadow: var(--shadow);
   }
+  /* 每张卡片上方的纸胶带 */
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -10px; left: 26px;
+    width: 64px; height: 20px;
+    border-radius: 3px;
+    background: rgba(217, 165, 33, .42);
+    transform: rotate(-5deg);
+    box-shadow: 0 2px 5px rgba(58, 49, 40, .10);
+    transition: transform .25s ease;
+    z-index: 2;
+  }
+  .card:hover::before { transform: rotate(-8deg) translateY(-2px); }
+  .c-brown::before {
+    left: auto; right: 26px;
+    transform: rotate(5deg);
+    background: rgba(79, 127, 94, .30);
+  }
+  .c-brown:hover::before { transform: rotate(8deg) translateY(-2px); }
+  .c-gold::before { background: rgba(139, 107, 71, .30); }
+
   .c-green { background: var(--green-soft); }
   .c-brown { background: var(--brown-soft); }
   .c-gold  { background: var(--gold-soft); }
+
   .card-emoji {
     width: 58px; height: 58px; flex-shrink: 0;
     display: grid; place-items: center;
@@ -210,7 +313,9 @@
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 4px 10px rgba(58, 49, 40, .06);
+    transition: transform .25s ease;
   }
+  .card:hover .card-emoji { transform: rotate(-8deg) scale(1.06); }
   .card-body { flex: 1; min-width: 0; }
   .card-body h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 2px; }
   .card-body p { font-size: 14px; color: var(--muted); line-height: 1.65; }
@@ -219,13 +324,27 @@
     flex-shrink: 0;
   }
 
+  /* ===== 联系 ===== */
   .contact-card {
     text-align: center;
-    background: var(--card);
+    background-color: var(--card);
     border: 2px dashed var(--brown-soft);
     border-radius: 32px;
     padding: clamp(32px, 7vw, 60px) clamp(24px, 5vw, 48px);
     box-shadow: var(--shadow-sm);
+    /* 四角小圆点 */
+    background-image:
+      radial-gradient(circle, var(--green) 0 3px, transparent 3px),
+      radial-gradient(circle, var(--gold) 0 3px, transparent 3px),
+      radial-gradient(circle, var(--brown) 0 3px, transparent 3px),
+      radial-gradient(circle, var(--green) 0 3px, transparent 3px);
+    background-position:
+      16px 16px,
+      calc(100% - 16px) 16px,
+      16px calc(100% - 16px),
+      calc(100% - 16px) calc(100% - 16px);
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
   }
   .contact-card p {
     font-size: clamp(1.05rem, 2.4vw, 1.3rem);
@@ -235,6 +354,7 @@
     margin: 0 auto;
   }
   .mail {
+    position: relative;
     display: inline-block;
     margin: 24px 0 30px;
     padding: 14px 34px;
@@ -245,8 +365,18 @@
     font-size: clamp(.95rem, 2.2vw, 1.1rem);
     box-shadow: 0 5px 0 #b8860b;
     transition: transform .15s ease, box-shadow .15s ease;
+    overflow: hidden;
+  }
+  .mail::after {
+    content: "";
+    position: absolute; top: 0; left: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);
+    transform: skewX(-18deg);
+    transition: left .55s ease;
   }
   .mail:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #b8860b; }
+  .mail:hover::after { left: 130%; }
   .mail:active { transform: translateY(3px); box-shadow: 0 1px 0 #b8860b; }
 
   .socials {
@@ -265,14 +395,41 @@
   .socials a:nth-child(4) { background: var(--cream-soft); }
   .socials a:hover { transform: translateY(-3px) rotate(-2deg); }
 
+  /* ===== 页脚 ===== */
   footer {
     display: flex; justify-content: space-between; flex-wrap: wrap;
     gap: 10px;
     padding: 32px 0 46px;
     font-size: 13px;
     color: var(--muted);
+    border-top: 1px dashed var(--brown-soft);
+    margin-top: 20px;
   }
 
+  /* ===== 回顶按钮 ===== */
+  .to-top {
+    position: fixed;
+    right: 22px; bottom: 22px;
+    width: 48px; height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    font-size: 19px;
+    font-family: var(--font);
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--green-deep);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity .25s, transform .25s, visibility .25s;
+    z-index: 90;
+  }
+  .to-top.show { opacity: 1; visibility: visible; transform: none; }
+  .to-top:hover { transform: translateY(-2px); }
+  .to-top:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--green-deep); }
+
+  /* ===== 进场动画 ===== */
   .js .reveal {
     opacity: 0; transform: translateY(18px);
     transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
@@ -284,6 +441,7 @@
     50% { transform: translateY(-10px) rotate(8deg); }
   }
 
+  /* ===== 移动端 ===== */
   @media (max-width: 700px) {
     body { padding: 0 18px; }
     header { padding: 20px 0 4px; }
@@ -291,10 +449,14 @@
     nav a { padding: 6px 14px; font-size: 13px; }
     .s2, .s4 { display: none; }
     .about-card { flex-direction: column; text-align: center; }
-    .card { padding: 18px; gap: 14px; }
+    .avatar-wrap::after { right: 2px; bottom: -6px; font-size: 20px; }
+    .card { padding: 20px 18px 18px; gap: 14px; }
+    .card::before { left: 18px; width: 56px; height: 18px; top: -9px; }
+    .c-brown::before { left: auto; right: 18px; }
     .card-emoji { width: 48px; height: 48px; font-size: 24px; }
     .card-year { display: none; }
     .actions .btn { flex: 1 1 auto; justify-content: center; }
+    .to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -305,6 +467,9 @@
 </style>
 </head>
 <body>
+
+<div class="progress" id="progress"></div>
+
 <div class="wrap">
 
   <header>
@@ -335,14 +500,16 @@
         <a class="btn btn-primary" href="#work">翻翻我的东西 🌱</a>
         <a class="btn btn-ghost" href="mailto:wz2022090121@163.com">找我聊天 ✉️</a>
       </div>
+      <p class="signature reveal">—— 小诗，写于某个有风的下午</p>
     </section>
+
+    <div class="divider reveal">🌿</div>
 
     <!-- ===== 关于 ===== -->
     <section id="about">
       <h2 class="sec-title reveal"><span>01</span>关于我</h2>
       <div class="about-card reveal">
         <div class="avatar-wrap">
-          <!-- 有照片就放 avatar.jpg 在同一文件夹；没有会显示 🦌 -->
           <img src="avatar.jpg" alt="小诗的照片" onerror="this.remove()" />
           <span class="avatar-fallback">🦌</span>
         </div>
@@ -353,6 +520,8 @@
         </div>
       </div>
     </section>
+
+    <div class="divider reveal">🍂</div>
 
     <!-- ===== 作品 ===== -->
     <section id="work">
@@ -385,6 +554,8 @@
       </div>
     </section>
 
+    <div class="divider reveal">🌰</div>
+
     <!-- ===== 联系 ===== -->
     <section id="contact">
       <h2 class="sec-title reveal"><span>03</span>联系我</h2>
@@ -409,7 +580,10 @@
 
 </div>
 
+<button id="toTop" class="to-top" aria-label="回到顶部">↑</button>
+
 <script>
+  /* 进场动画 */
   var els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -421,6 +595,22 @@
   } else {
     els.forEach(function (el) { el.classList.add('in'); });
   }
+
+  /* 滚动进度条 + 回顶按钮 */
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+    toTop.classList.toggle('show', h.scrollTop > 420);
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  onScroll();
 </script>
 </body>
 </html>
